@@ -1,6 +1,6 @@
 'use strict'
 
-console.log('"Вадим Захаренко"');
+console.log('Захаренко Вадим');
 
 let a = 19;
 let b = 8;
