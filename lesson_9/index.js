@@ -2,24 +2,23 @@
 
 console.log('Захаренко Вадим');
 
-let a = 19;
-let b = 8;
+let a = 12;
+let b = 7;
 
 
 if (a > b){
 	console.log(a);
 } else {
-	console.log('no');
+	console.log(b);
 }
-
 
 
 if (a < b){
 	console.log(a);
-} else{
-	console.log('no')
+} else {
+	console.log(b);
 }
-
+ 
 console.log (a + b);
 
 console.log (a % b);
