@@ -14,7 +14,7 @@ function removeKeys1(obj, arr) {
 
 
 function removeKeys2(obj, arr){
-  let newObj = obj;
+  let newObj = {...obj};
   let keys = Object.keys(newObj);
     for ( let key of keys) {
         for ( let element of arr){
@@ -26,10 +26,11 @@ function removeKeys2(obj, arr){
     return newObj;
 };
 
+console.log(removeKeys2({ a: 1, b: [], c: '', d: 123 }, ['a', 'c']));
 
 function absDiff(a){
     function inside(b){
-    return b - a;   
+    return Math.abs (b - a);   
     }
     return inside;
 }
