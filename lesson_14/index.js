@@ -39,14 +39,16 @@ function init (obj, n){
 	}
 }
 function listen (){
+	let list = document.querySelector('ul')
 	if (list) {
 		console.log(true);
-		list.remove();
+		list.remove()
 	} else {
 		console.log(false);
 	}
 };	
 
-del.addEventListener('click', listen());
+let listener = document.querySelector('button');
+listener.addEventListener('click', listen);
 
 
