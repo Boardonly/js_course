@@ -2,16 +2,17 @@
  
 function add(emojii){
 	if (!emojii) {
-    emojii = ':heart::heart:';
+    emojii = '❤️🇺🇦';
 };
 	let summ = 0;
 	let container = undefined;
-	container = emojii.split('')
-	for (let element of container) {
-   	summ += element.charCodeAt(0);
+	 container = emojii.split('')
+  for (let element of container) {
+    summ += element.charCodeAt(0) + element.charCodeAt(1) || element.charCodeAt(0);
    };
-	return (summ / 2);		
+  return summ / (container.length / 2);    
 }
+
 
 
 
@@ -25,19 +26,17 @@ function revers (){
 }
 
 
-
 function clearNumbers(arr) {
 	for (let i = 0; i < arr.length; i++) {
 		for (let j = 0; j < arr[i].length; j++){
             if (typeof arr[j][i] !== 'number') {
                   arr[i].splice(j, 1);
+                  j -= 1;
               }
           }
       }
   return arr;
 }
-
-
 
 
 function splitArray (arr, len) {
