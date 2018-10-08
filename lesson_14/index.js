@@ -24,20 +24,24 @@ let arr = [
 { className: 'class', attributes: { 'data-name': 'Piter' }, content: 'NoSome Text' },
 ]
 
-function init (obj, n){
-		const newUl = document.createElement('ul');
-		newUl.id = 'list'
-		document.body.prepend(newUl);
-		for (let i = 0; i < n; i += 1) {
-		const newLi = document.createElement('li');
-		newLi.className = obj[i].className;
-		newLi.innerHTML = obj[i].content;
-		for (let key of Object.keys(obj[i].attributes)){
-			newLi.setAttribute(key, obj[i].attributes[key])
-		}
-		list.append(newLi);
-	}
+
+function init(obj, n) {
+    let newUl = document.createElement('ul');
+    document.body.append(newUl);
+    for (let i = 0; i < obj.length; i += 1) {
+        for (let j = 0; j < n; j += 1) {
+            let newLi = document.createElement('li');
+            let attributesKeys = Object.keys(obj[i].attributes);
+            newLi.classList.add(obj[i].className);
+            for (let key of attributesKeys) {
+                newLi.setAttribute(key, obj[i].attributes[key])
+            }
+            newLi.innerText = obj[i].content;
+            newUl.appendChild(newLi);
+        }
+    }
 }
+
 function listen (){
 	let list = document.querySelector('ul')
 	if (list) {
