@@ -16,6 +16,9 @@ export default class Dom {
         this.coordinates = coordinates;
         console.log(coordinates);
         let span = document.getElementById('ipInput');
+        span.innerText = coordinates;
         span.innerText = `ваши координаты: ${coordinates.latitude}, ${coordinates.longitude}`
     }
 }
+
+

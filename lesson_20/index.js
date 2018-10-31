@@ -3,13 +3,13 @@
 import LocationApi from './location_api.js'
 import Dom from './dom.js'
 
-let a = new LocationApi();
-let b = new Dom();
-b.showPreloader();
-a.getMyIp();
+let local = new LocationApi();
+let text = new Dom();
+text.showPreloader();
 
-new Promise ((resolve, reject) => {
-    setTimeout(resolve, 1000);
-})
-    .then(() => b.hidePreloader())
-    .then(() => b.setCoordinates(a.getMyLocation()))
+local.getMyIp()
+    .then(ip => local.getMyLocation(ip))
+    .then(res => {
+        text.setCoordinates(res);
+    })
+
