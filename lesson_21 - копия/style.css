@@ -1,0 +1,40 @@
+*{
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    background-color: rgb(132, 210, 30);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: black;
+}
+
+.main-bar {
+    display: block;
+    margin-top: 130px;
+    background-color: rgb(255, 255, 255);
+    width: 250px;
+   
+    border-radius: 10px;
+}
+.bar3{
+    margin: 10px; 
+}
+.bar4{
+    font-size: smaller;
+    font-style: oblique;
+    margin: 10px; 
+}
+
+.second-bar{
+    display: block;
+    margin-top: 10px;
+    background-color: rgb(255, 255, 255);
+    width: 250px;
+    border-radius: 10px;
+}
+img{
+    width: 40%;
+}
