@@ -1,0 +1,25 @@
+.red {
+    border-color: red;
+    border-style: solid;
+}
+
+.green {
+    border-color: green;
+    border-style: solid;
+}
+
+
+.hide{
+    display: none;
+}
+
+.result {
+    display: block;
+}
+
+.preloader{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
+}
