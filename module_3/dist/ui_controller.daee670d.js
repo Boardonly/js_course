@@ -104,79 +104,103 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"C:/Users/Yorik/AppData/Roaming/npm/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"ui_controller.js":[function(require,module,exports) {
+'use strict';
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.UIController = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var UIController =
+/*#__PURE__*/
+function () {
+  function UIController(cardData, name) {
+    _classCallCheck(this, UIController);
+
+    this.name = name;
+    this.data = cardData;
+    this.inputName = document.getElementById('name');
+    this.inputCard = document.getElementById('card');
+    this.button = document.getElementById('submit');
+    this.divResult = document.getElementById('result');
+    this.tabResult = document.getElementById('table_result');
+    this.preloader = document.getElementById('preloader');
   }
 
-  return bundleURL;
-}
+  _createClass(UIController, [{
+    key: "toTable",
+    value: function toTable() {
+      var keys = Object.keys(this.data);
+      var values = Object.values(this.data);
+      var table = document.getElementById('table_result');
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"C:/Users/Yorik/AppData/Roaming/npm/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
+      for (var i = 0; i < keys.length; i += 1) {
+        var tr = document.createElement('tr');
+        var td_key = document.createElement('td');
+        td_key.innerText = "".concat(keys[i]);
+        tr.append(td_key);
+        var td_value = document.createElement('td');
+        td_value.innerText = "".concat(values[i]);
+        tr.append(td_value);
+        table.append(tr);
       }
     }
+  }, {
+    key: "validInput",
+    value: function validInput() {
+      this.name.className = "green";
+      this.name.valid = true;
+    }
+  }, {
+    key: "invalidInput",
+    value: function invalidInput() {
+      this.name.className = "red";
+      this.name.valid = false;
+    }
+  }, {
+    key: "validation",
+    value: function validation() {
+      if (this.inputName.valid && this.inputCard.valid) {
+        this.button.disabled = false;
+      } else {
+        this.button.disabled = true;
+      }
+    }
+  }]);
 
-    cssTimeout = null;
-  }, 50);
-}
+  return UIController;
+}(); // const inputName = document.getElementById('name');
+// const inputCard = document.getElementById('card');
+// const button = document.getElementById('submit');
+// const divResult = document.getElementById('result');
+// const tabResult = document.getElementById('table_result');
+// const preloader = document.getElementById('preloader');
+// function toTable(data) {
+// 	const keys = Object.keys(data);
+// 	const values = Object.values(data);
+// 	const table = document.getElementById('table_result');
+// 	for (let i = 0; i < keys.length; i += 1) {
+// 		const tr = document.createElement('tr');
+// 		const td_key = document.createElement('td');
+// 		td_key.innerText = `${keys[i]}`;
+// 		tr.append(td_key);
+// 		const td_value = document.createElement('td');
+// 		td_value.innerText = `${values[i]}`;
+// 		tr.append(td_value);
+// 		table.append(tr);
+// 	}
+// };
 
-module.exports = reloadCSS;
-},{"./bundle-url":"C:/Users/Yorik/AppData/Roaming/npm/node_modules/parcel/src/builtins/bundle-url.js"}],"style.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
 
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"C:/Users/Yorik/AppData/Roaming/npm/node_modules/parcel/src/builtins/css-loader.js"}],"C:/Users/Yorik/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+exports.UIController = UIController;
+},{}],"C:/Users/Yorik/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -345,4 +369,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["C:/Users/Yorik/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
+},{}]},{},["C:/Users/Yorik/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js","ui_controller.js"], null)
+//# sourceMappingURL=/ui_controller.daee670d.map
