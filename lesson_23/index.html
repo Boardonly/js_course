@@ -4,31 +4,35 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Black+And+White+Picture" rel="stylesheet">
 	<link rel="stylesheet" href="./style.css">
-
 	<title>Document</title>
 </head>
 <body>
-		<div class="form">
-			<label for="card">
-				card:
-				<input class="js-input-selector" type="text" id="card">
-			</label>
-			<label for="name">
-				name:
-				<input class="js-input-selector" type="text" id="name">
-			</label>
-				<input type="submit" class ="" value="Get Info" id="submit">
-		</div>
-		<div id="preloader" class="hide">LOADING...
-		</div>
-		<div id="result" class="hide">
-			<table id="table_result">
-				
-			</table>
-				
-		</div>
-	
+	<div class="form">
+		<span class="hello"><b>Поиск синонимов</b></span><br>
+		<label for="word">
+			Слово:	
+		<input type="text" class ="" id="word">
+		</label><br>
+		<label for="width">
+			Ширина:
+			<input type="number" class ="" id="width" min="50" max="500" ><br>
+		</label>
+		<label for="height">
+			Высота:
+			<input type="number" class ="" id="height" min="50" max="500"ы><br>
+		</label>
+		<input type="submit" class ="" value="Получить синонимы" id="submit">
+	</div>
+	<div id="preloader" class="hide">LOADING...
+	</div>
+	<div id="result" class="hide">
+		
+	</div>
+		
+ 
 	<script src="./index.js"></script>
 </body>
 </html>
